@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
+import { Link } from 'react-router-dom';
 
 const Login = ({ handleLogin, history }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -22,7 +23,7 @@ const Login = ({ handleLogin, history }) => {
           name='email'
           value={user.email}
           placeholder='Email'
-          onChange={(e, { value }) => setUser({ ...user, email: value })}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
         <label for='password'>Password</label>
         <input
@@ -33,10 +34,13 @@ const Login = ({ handleLogin, history }) => {
           value={user.password}
           placeholder='Password'
           type='password'
-          onChange={(e, { value }) => setUser({ ...user, password: value })}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
-          <button primary type='submit'>Submit</button>
+        <button type='submit'>Login</button>
       </form>
+      <Link to="/register">
+        <button>New User Sign Up</button>
+      </Link>
     </>
   )
 }

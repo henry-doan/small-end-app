@@ -1,5 +1,4 @@
 import { AuthConsumer } from "../../providers/AuthProvider";
-import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 
 const Navbar = ({user, handleLogout, location, history }) => {
@@ -14,6 +13,9 @@ const Navbar = ({user, handleLogout, location, history }) => {
     } else {
       return (
         <>
+          <Link to='/'>
+            <li>Home</li>
+          </Link>
           <Link to='/login'>
             <li>Login</li>
           </Link>
@@ -28,9 +30,6 @@ const Navbar = ({user, handleLogout, location, history }) => {
   return (
     <>
       <ul>
-        <Link to='/'>
-          <li>Home</li>
-        </Link>
           { rightNavItems() }
       </ul>
     </>

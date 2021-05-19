@@ -1,6 +1,12 @@
+import { AuthConsumer } from '../../providers/AuthProvider';
+
 const Welcome = () => (
   <>
-    <h1>Welcome firstname lastname </h1>
+    <AuthConsumer>
+      { value => (
+        <h1>Welcome {value.user.first_name} {value.user.last_name}!</h1>
+      )}
+    </AuthConsumer>
   </>
 )
 
